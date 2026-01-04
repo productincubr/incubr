@@ -37,18 +37,39 @@
 
 
 import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { Menu, X, Sparkles, BookOpen, Phone } from "lucide-react"; // install: npm i lucide-react
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [activeTab, setActiveTab] = useState("Services");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const tabs = [
-    { name: "Services", icon: Sparkles },
-    { name: "Masterclass", icon: BookOpen },
-    { name: "Contact Us", icon: Phone }
+    { name: "Services", icon: Sparkles, path: "/services" },
+    { name: "Masterclass", icon: BookOpen, path: "/masterclass" },
+    { name: "Contact Us", icon: Phone, path: "/contact" }
   ];
+
+  // Set active tab based on current route
+  useEffect(() => {
+    if (location.pathname === '/contact') {
+      setActiveTab("Contact Us");
+    } else if (location.pathname === '/masterclass') {
+      setActiveTab("Masterclass");
+    } else if (location.pathname === '/services') {
+      setActiveTab("Services");
+    } else {
+      setActiveTab("Services");
+    }
+  }, [location.pathname]);
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab.name);
+    navigate(tab.path);
+  };
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -83,31 +104,36 @@ const Header = () => {
         </button>
 
         {/* Logo */}
-        <div
+        <Link to="/"
           className="
             absolute left-1/2 -translate-x-1/2
             md:static md:translate-x-0
             transition-transform duration-300 hover:scale-105
+            cursor-pointer
           "
         >
           <img src={logo} alt="Incubr Logo" className="h-8" />
-        </div>
+        </Link>
 
         {/* Desktop / Tablet Tabs */}
         <div className="hidden md:flex ml-auto bg-gradient-to-r from-[#D9D9D9] to-[#CECECE] rounded-4xl items-center py-3 px-3 gap-2 shadow-md">
           {tabs.map((tab) => (
             <button
               key={tab.name}
-              onClick={() => setActiveTab(tab.name)}
+              onClick={() => handleTabClick(tab)}
               className={`
                 px-10 lg:px-16 py-2 rounded-4xl transition-all duration-300
-                transform hover:scale-105 font-medium
+                transform hover:scale-105 font-medium cursor-pointer
                 ${
                   activeTab === tab.name
                     ? "bg-gradient-to-r from-[#F19D38] to-[#E88B28] text-white shadow-lg"
                     : "text-gray-700 hover:text-gray-900 hover:bg-white/50 hover:shadow-md"
                 }
+                ${tab.name === "Services" && activeTab !== "Services" ? "animate-pulse-shadow" : ""}
               `}
+              style={tab.name === "Services" && activeTab !== "Services" ? {
+                animation: 'pulse-shadow 2s ease-in-out infinite'
+              } : {}}
             >
               {tab.name}
             </button>
@@ -161,7 +187,7 @@ const Header = () => {
                   <button
                     key={tab.name}
                     onClick={() => {
-                      setActiveTab(tab.name);
+                      handleTabClick(tab);
                       setTimeout(() => setMenuOpen(false), 300);
                     }}
                     className={`
@@ -241,21 +267,6 @@ const Header = () => {
                 <p className="text-sm text-gray-600 leading-relaxed">
                   Join us in building the future of innovation and entrepreneurship.
                 </p>
-              </div>
-            </div>
-
-            {/* Quick Links */}
-            <div className={`mt-6 transform transition-all duration-500 ${menuOpen ? 'animate-slide-in-3' : ''}`} style={{ animationDelay: '600ms' }}>
-              <div className="bg-gradient-to-r from-[#F19D38]/10 to-[#E88B28]/10 rounded-xl p-4 border border-[#F19D38]/20">
-                <p className="text-xs font-semibold text-gray-600 mb-3">Quick Access</p>
-                <div className="flex gap-2">
-                  <button className="flex-1 py-2 px-3 bg-white/70 rounded-lg text-sm font-medium text-gray-700 hover:bg-white hover:shadow-md transition-all active:scale-95">
-                    📧 Email
-                  </button>
-                  <button className="flex-1 py-2 px-3 bg-white/70 rounded-lg text-sm font-medium text-gray-700 hover:bg-white hover:shadow-md transition-all active:scale-95">
-                    📞 Call
-                  </button>
-                </div>
               </div>
             </div>
           </div>

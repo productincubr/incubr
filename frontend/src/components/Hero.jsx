@@ -18,10 +18,11 @@
 
 
 import React from "react";
+import herovideo from '../assets/FINAL.mp4'
 
 const Hero = () => {
   return (
-    <section className="flex flex-col lg:flex-row justify-around items-center mx-6 sm:mx-12 lg:mx-24 mt-16 lg:mt-20 gap-12">
+    <section className="flex flex-col lg:flex-row justify-around items-center mx-6 sm:mx-12 lg:mx-24 mt-4 lg:mt-12 gap-12">
       
       {/* TEXT */}
       <div className="w-full lg:w-[55%] text-center lg:text-left">
@@ -38,11 +39,14 @@ const Hero = () => {
       </div>
 
       {/* IMAGE */}
-      <div className="w-full lg:w-[45%] flex justify-center">
-        <img
-          src="https://images.unsplash.com/photo-1556761175-4b46a572b786"
-          alt="Workspace"
-          className="w-full max-w-md lg:max-w-full rounded-xl"
+      <div className="w-full sm:w-[28%] lg:w-[28%] flex justify-center">
+        <video
+          src={herovideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full max-w-sm lg:max-w-md rounded-xl shadow-lg"
         />
       </div>
     </section>
