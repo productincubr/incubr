@@ -56,7 +56,7 @@ const Business = () => {
       {/* Top Row */}
       <div className="flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-20 mt-12 lg:mt-20 mb-12">
         
-        <div className="text-center lg:text-left">
+        <div className="text-center lg:text-left cursor-pointer">
           <img
             src={logoprodman04}
             alt="logo4"
@@ -64,6 +64,7 @@ const Business = () => {
           />
           <a
             href="#"
+            target="_blank"
             className="inline-flex items-center mt-4 text-base lg:text-lg hover:text-[#F19D38]"
           >
             Coworking & Managed Offices
@@ -80,7 +81,8 @@ const Business = () => {
             className="h-12 lg:h-20 mb-3 mx-auto lg:mx-0"
           />
           <a
-            href="#"
+            href="https://prodmaninc.com/design/"
+            target="_blank"
             className="inline-flex items-center mt-4 text-base lg:text-lg hover:text-[#F19D38]"
           >
             Product & MVP Dev. & GTM
@@ -101,6 +103,7 @@ const Business = () => {
           />
           <a
             href="#"
+            target="_blank"
             className="inline-flex items-center mt-4 text-base lg:text-lg hover:text-[#F19D38]"
           >
             Media & Podcast Sets

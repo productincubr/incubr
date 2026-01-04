@@ -1,26 +1,34 @@
 import './App.css'
-import Business from './components/Business'
-import Clients from './components/Clients'
-import Footer from './components/Footer'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
-import Hero from './components/Hero'
-import Incubatees from './components/Incubatees'
-import Together from './components/Together'
-import WorkingOn from './components/WorkingOn'
+import Home from './components/Home'
+import Services from './components/Services'
+import ContactUs from './components/ContactUs'
+import Masterclass from './components/Masterclass'
+import Footer from './components/Footer'
 
-function App() {
-
+function AppContent() {
+  const location = useLocation();
+  
   return (
     <>
       <Header/>
-      <Hero/>
-      <Business/>
-      <Incubatees/>
-      <Clients/>
-      <Together/>
-      <WorkingOn/>
-      <Footer/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/masterclass" element={<Masterclass />} />
+        <Route path="/contact" element={<ContactUs />} />
+      </Routes>
+      {location.pathname === '/' && <Footer/>}
     </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   )
 }
 

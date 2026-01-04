@@ -35,53 +35,59 @@ const Clients = () => {
   return (
     <section className="mt-24 lg:mt-48 flex justify-center">
       {/* Wrapper */}
-      <div className="relative w-full max-w-[900px] px-6 lg:px-0">
+      <div className="relative w-full max-w-[900px] px-6 lg:px-12">
 
         {/* Heading */}
-        <p className="nunito text-[30px] lg:mb-24 font-bold sm:text-[30px] lg:text-[35px] text-center lg:underline">
+        <p className="nunito text-[30px] font-bold sm:text-[30px] lg:text-[35px] text-center lg:underline lg:mb-16">
           What the Clients Say
         </p>
 
-        {/* Quotes */}
+        {/* Mobile: Client Image + Name (centered) */}
+        <div className="lg:hidden flex flex-col items-center mt-6 mb-8">
+          <img
+            src={client1}
+            alt="client"
+            className="h-24 sm:h-28 shadow-lg"
+          />
+          <p className="nunito font-bold text-[20px] sm:text-[22px] mt-3 text-center">
+            Niharika Kolte Alekar
+          </p>
+        </div>
+
+        {/* Desktop: Quotes (outside card, top left) */}
         <img
           src={quotes}
           alt="quotes"
-          className="h-10 sm:h-14 absolute top-18 left-8 lg:right-80 lg:top-28 z-10"
+          className="h-10 sm:h-12 absolute left-8 top-[200px] sm:top-[270px]  lg:top-[85px] z-10"
         />
 
-        {/* Client Image */}
+        {/* Desktop: Client Image (outside card, right side overlap) */}
         <img
           src={client1}
           alt="client"
-          className="
-            absolute 
-            top-12 right-0 
-            h-14 sm:h-24 sm:top-5 lg:h-32 
-            z-20
-            md:top-6
-            lg:top-44 lg:left-210
-          "
+          className="hidden lg:block absolute h-32 -right-8 top-[100px] z-20"
         />
 
-        {/* Card */}
+        {/* Card with proper padding on desktop to avoid overlap */}
         <div className="
           border-2 border-black bg-white
           rounded-2xl
-          p-6 sm:p-10 lg:p-16
-          mt-16
+          p-6 sm:p-10 
+          lg:pl-20 lg:pr-24 lg:pt-12 lg:pb-16
+          mt-0 lg:mt-0
         ">
-          <p className="nunito text-[14px] pt-4 sm:text-[16px] lg:text-[17px]">
+          <p className="nunito text-[14px] sm:text-[16px] lg:text-[17px]">
             Gopal is my mentor at the incubation program run by Atal Innovation Center - RNTU - Wadhwani Foundation. Top 3 traits that I absolutely admire about him:
           </p>
 
-          <ol className="mt-6 nunito text-[14px] sm:text-[16px] lg:text-[17px] list-decimal list-inside">
-            <li className="mt-2">
+          <ol className="mt-6 nunito text-[14px] sm:text-[16px] lg:text-[17px] list-decimal list-inside space-y-2">
+            <li>
               His workshops leave you with direct action items customised to your needs
             </li>
-            <li className="mt-2">
+            <li>
               His suggestions are very practical and this is a testimony to the fact that the content of his workshop stems from his personal experience.
             </li>
-            <li className="mt-2">
+            <li>
               He never gives generic gyaan, he always targets a specific topic and backs it up with real-life examples.
             </li>
           </ol>
@@ -91,17 +97,20 @@ const Clients = () => {
           </p>
         </div>
 
-        {/* Client Name */}
+        {/* Desktop: Client Name (below card, aligned with image) */}
         <p className="
+          hidden lg:block
           nunito font-bold
-          text-[18px] sm:text-[22px] lg:text-[26px]
-          bg-white inline-block
-          px-4
+          text-[24px]
+          bg-white
+          px-4 py-2
           absolute
-          right-0
-          top-25 sm:top-28 lg:top-75 lg:left-200 lg:w-46
+          -right-12 top-[240px]
+          text-center
+          shadow-sm
+          rounded-lg
         ">
-          Niharika Kolte Alekar
+          Niharika Kolte<br/>Alekar
         </p>
 
       </div>

@@ -1,45 +1,5 @@
-// import React from 'react'
-// import photogpt from '../assets/photogpt.png'
-// import strange from '../assets/strange.png'
-// import volar from '../assets/volar.png'
-// import ethi from '../assets/ethi.png'
-// import lean from '../assets/lean.png'
-
-// const Incubatees = () => {
-//   return (
-//     <div className="mt-48 mx-48">
-//       <p className="nunito text-[35px] text-center underline">Our Incubatees and some Investments</p>
-//       <div className='flex justify-center gap-4 mt-20 mb-4'>
-//         <div className='border border-1 border-black hover:shadow-2xl bg-white h-40 w-80 flex justify-center items-center'>
-//             <img src={volar} alt='volar' className='h-8'/>
-//         </div>
-//         <div className='border border-1 border-black hover:shadow-2xl bg-white h-40 w-80 flex justify-center items-center'>
-//             {/* <img  alt='volar' className='h-8'/> */}
-//         </div>
-//         <div className='border border-1 border-black hover:shadow-2xl bg-white h-40 w-80 flex justify-center items-center'>
-//             <img src={photogpt} alt='volar' className='h-8'/>
-//         </div>
-//       </div>
-//       <div className='flex justify-center gap-4 mt-4 mb-12'>
-//         <div className='border border-1 border-black hover:shadow-2xl bg-white h-40 w-80 flex justify-center items-center'>
-//             <img src={strange} alt='volar' className='h-24'/>
-//         </div>
-//         <div className='border border-1 border-black hover:shadow-2xl bg-white h-40 w-80 flex justify-center items-center'>
-//             <img src={ethi}  alt='volar' className='h-16'/>
-//         </div>
-//         <div className='border border-1 border-black hover:shadow-2xl bg-white h-40 w-80 flex justify-center items-center'>
-//             <img src={lean} alt='volar' className='h-20'/>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Incubatees
-
-
-
 import React from "react";
+import { motion } from "framer-motion";
 import photogpt from "../assets/photogpt.png";
 import strange from "../assets/strange.png";
 import volar from "../assets/volar.png";
@@ -48,41 +8,108 @@ import lean from "../assets/lean.png";
 
 const Incubatees = () => {
   const firstRow = [
-    { src: volar, alt: "volar", height: "h-8" },
-    { src: "", alt: "placeholder", height: "h-8" },
-    { src: photogpt, alt: "photogpt", height: "h-8" },
+    { src: volar, alt: "volar", height: "h-8", link: "https://www.volaralta.com/", category: "Past" },
+    { src: strange, alt: "strange", height: "h-24", link: "https://thestrangeco.com/", category: "Past" },
+    { src: photogpt, alt: "photogpt", height: "h-8", link: "https://www.photogptai.com/", category: "Past" },
   ];
 
   const secondRow = [
-    { src: strange, alt: "strange", height: "h-24" },
-    { src: ethi, alt: "ethi", height: "h-16" },
-    { src: lean, alt: "lean", height: "h-20" },
+    { src: "https://www.outblogai.com/logo.svg", alt: "placeholder", height: "h-8", link: "https://www.outblogai.com/", category: "Ongoing" },
+    { src: ethi, alt: "ethi", height: "h-16", link: "https://ethi.in/", category: "Ongoing" },
+    { src: lean, alt: "lean", height: "h-20", link: "#", category: "Ongoing" },
   ];
 
-  const renderRow = (row) => (
-    <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4 ">
+  // Animation variants for cards
+  const cardVariants = {
+    hiddenLeft: {
+      opacity: 0,
+      x: -100,
+    },
+    hiddenRight: {
+      opacity: 0,
+      x: 100,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const renderRow = (row, direction) => (
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4 mb-4">
       {row.map((item, idx) => (
-        <div
+        <motion.a
           key={idx}
-          className="border border-black hover:shadow-2xl bg-white h-40 w-60 md:w-80 flex justify-center items-center"
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="incubatee-card border-2 border-black h-40 w-60 md:w-80 flex justify-center items-center relative group transition-all duration-700 overflow-hidden"
+          
+          // Framer Motion scroll-based animation - Repeatable & Reversible
+          initial={direction === 'left' ? 'hiddenLeft' : 'hiddenRight'}
+          whileInView="visible"
+          viewport={{ 
+            once: false,  // Animation runs every time
+            amount: 0.5,  // Trigger when 50% of card is visible
+            margin: "0px 0px -100px 0px"  // Start animation slightly before card enters
+          }}
+          variants={cardVariants}
+          transition={{
+            delay: idx * 0.1,  // Staggered animation
+            duration: 0.4,
+            ease: "easeOut"
+          }}
         >
-          {item.src && <img src={item.src} alt={item.alt} className={`${item.height}`} />}
-        </div>
+          {/* Animated Background Layer */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#feba68] to-[#fda343] scale-0 group-hover:scale-100 transition-transform duration-500 ease-out origin-center"></div>
+          
+          {/* Image Container */}
+          <div className="relative z-10 transition-all duration-300 group-hover:scale-110">
+            {item.src && (
+              <img 
+                src={item.src} 
+                alt={item.alt} 
+                className={`${item.height} transition-all duration-300`} 
+              />
+            )}
+          </div>
+
+          {/* Category Badge */}
+          <span className="absolute bottom-3 right-3 z-10 bg-gradient-to-r from-[#F19D38] to-[#E88B28] text-gray-700 text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
+            {item.category}
+          </span>
+
+          {/* Hover Glow Effect */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white rounded-full blur-2xl"></div>
+          </div>
+        </motion.a>
       ))}
     </div>
   );
 
   return (
     <section className="mt-24 sm:mt-48 sm:mx-12 lg:mx-48">
-      <p className="nunito text-[30px] lg:mb-24 font-bold sm:text-[30px] lg:text-[35px] text-center lg:underline">
+      {/* Heading */}
+      <motion.p 
+        className="nunito text-[30px] lg:mb-12 font-bold sm:text-[30px] lg:text-[35px] text-center lg:underline"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.8 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         Our Incubatees and some Investments
-      </p>
+      </motion.p>
 
-      {/* First Row */}
-      {renderRow(firstRow)}
+      {/* First Row - Slide from Right */}
+      {renderRow(firstRow, 'right')}
 
-      {/* Second Row */}
-      {renderRow(secondRow)}
+      {/* Second Row - Slide from Left */}
+      {renderRow(secondRow, 'left')}
     </section>
   );
 };
