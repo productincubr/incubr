@@ -49,7 +49,7 @@ const Business = () => {
     <section className="mt-20 lg:mt-36 mx-6 sm:mx-12 lg:mx-48">
       
       {/* Heading */}
-      <p className="nunito text-[40px] font-bold sm:text-[30px] lg:text-[35px] text-center lg:underline">
+      <p className="nunito text-[40px] font-bold sm:text-[30px] lg:text-[35px] text-center underline lg:underline">
         Our Businesses
       </p>
 

@@ -16,43 +16,40 @@ const Clients = () => {
     { img: client6, name: "Client 6" },
   ];
 
-  // Create multiple copies for truly seamless infinite scroll
-  const duplicatedTestimonials = [
-    ...testimonials,
-    ...testimonials,
-    ...testimonials,
-    ...testimonials
-  ];
+  // This is the key: duplicate the array to create a seamless loop.
+  // The structure becomes [A,B,C...A,B,C...].
+  const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
     <section className="mt-24 lg:mt-48 py-8">
-      {/* Heading */}
-      <p className="nunito text-[30px] font-bold sm:text-[30px] lg:text-[35px] text-center lg:underline mb-12">
+      <p className="nunito text-[30px] font-bold sm:text-[30px] lg:text-[35px] text-center underline lg:underline mb-12">
         What the Clients Say
       </p>
 
-      {/* Centered Container with Fixed Max-Width */}
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 overflow-hidden">
-        {/* Scrolling Container - Will-change for performance */}
-        <div className="relative">
-          <div className="flex gap-8 animate-scroll-left hover:pause-animation will-change-transform">
-            {duplicatedTestimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-80 h-80 sm:w-96 sm:h-96 group cursor-pointer p-2 transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="relative w-full h-full overflow-hidden rounded-2xl border-2 border-black shadow-lg group-hover:shadow-2xl transition-all duration-300">
-                  <img
-                    src={testimonial.img}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover object-scale-down"
-                  />
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
+      <div
+        className="w-full overflow-hidden relative"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+        }}
+      >
+        <div className="flex w-max animate-scroll-testimonial hover-pause-scroll">
+          {/* Render the duplicated list. The CSS animation will do the rest. */}
+          {duplicatedTestimonials.map((testimonial, index) => (
+            <div
+              key={`testimonial-${index}`}
+              className="flex-shrink-0 w-80 h-80 sm:w-96 sm:h-96 group cursor-pointer p-4"
+            >
+              <div className="relative w-full h-full overflow-hidden rounded-2xl border-2 border-black bg-white shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 transform">
+                <img
+                  src={testimonial.img}
+                  alt={testimonial.name}
+                  className="w-full h-full object-scale-down"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

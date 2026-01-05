@@ -289,18 +289,24 @@ html {
   }
 }
 
-@keyframes scroll-left {
+@keyframes scroll-testimonial {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100% / 4));
+    transform: translateX(-50%);
   }
 }
 
-.animate-scroll-left {
-  animation: scroll-left 30s linear infinite;
+.animate-scroll-testimonial {
+  animation: scroll-testimonial 40s linear infinite;
   will-change: transform;
+  display: flex;
+  width: max-content;
+}
+
+.hover-pause-scroll:hover {
+  animation-play-state: paused;
 }
 
 .pause-animation:hover {
