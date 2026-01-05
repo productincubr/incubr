@@ -49,8 +49,7 @@ const Together = () => {
               key={index}
               className="recoleta-bold font-extrabold gradient-text
                 text-[60px] sm:text-[80px] lg:text-[130px] px-10 hover-scale"
-            >
-              We will ✨ Together
+            >We will ✨ Together ✨
             </span>
           ))}
         </div>
