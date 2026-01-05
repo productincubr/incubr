@@ -289,4 +289,29 @@ html {
   }
 }
 
+@keyframes scroll-testimonial {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-testimonial {
+  animation: scroll-testimonial 40s linear infinite;
+  will-change: transform;
+  display: flex;
+  width: max-content;
+}
+
+.hover-pause-scroll:hover {
+  animation-play-state: paused;
+}
+
+.pause-animation:hover {
+  animation-play-state: paused;
+}
+
+
 

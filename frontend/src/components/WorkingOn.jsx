@@ -89,7 +89,7 @@ const WorkingOn = () => {
   return (
     <section className="mt-12 lg:mt-24">
       <div className="h-auto py-16 mb-24">
-        <p className="nunito text-[30px] font-bold sm:text-[30px] lg:text-[35px] text-center lg:underline">
+        <p className="nunito text-[30px] font-bold sm:text-[30px] lg:text-[35px] text-center underline lg:underline">
           What We’re Working on
         </p>
 

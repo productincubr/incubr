@@ -1,25 +1,5 @@
-// import React from 'react'
-
-// const Footer = () => {
-//   return (
-//     <div className='bg-[#F19D38] h-[400px] flex justify-between items-center px-24'>
-//       <div className='flex flex-col'>
-//         <p className='recoleta-bold font-700 text-[75px] leading-18 w-[50%]'>Let’s </p>
-//         <p  className='recoleta-bold font-700 text-[75px] leading-18 w-[60%]'>sit together sometime</p>
-//       </div>
-//       <div className='w-[50%]'>
-//         <p className='font-semibold text-md'>Ready to step up your community management and show up more consistently online with relevant content?</p>
-//         <button className='bg-white rounded-3xl mt-6 px-10 py-2 hover:border-1 hover:border-black hover:shadow-2xl cursor-pointer'>Contact Us</button>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Footer
-
-
-
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -37,9 +17,9 @@ const Footer = () => {
         <p className="font-semibold text-base sm:text-md">
         We are eager to learn, help, <br /> collaborate leveraging tech and creativity. <br /> Let’s connect to create impact.
         </p>
-        <button className="bg-white rounded-3xl mt-6 px-8 sm:px-10 py-2 hover:border hover:border-black hover:shadow-2xl cursor-pointer">
+        <Link to='/contact' className="bg-white rounded-3xl mt-6 px-8 sm:px-10 py-2 hover:shadow-2xl cursor-pointer">
           Contact Us
-        </button>
+        </Link>
       </div>
     </footer>
   );
