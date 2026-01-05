@@ -102,7 +102,7 @@ const Incubatees = () => {
         viewport={{ once: false, amount: 0.8 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        Our Incubatees and some Investments
+        Our Incubatees and Investments
       </motion.p>
 
       {/* First Row - Slide from Right */}
