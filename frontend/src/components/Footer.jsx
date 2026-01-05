@@ -38,7 +38,7 @@ const Footer = () => {
         <p className="font-semibold text-base sm:text-md">
         We are eager to learn, help, <br /> collaborate leveraging tech and creativity. <br /> Let’s connect to create impact.
         </p>
-        <Link to='/contact' className="bg-white rounded-3xl mt-6 px-8 sm:px-10 py-2 hover:border hover:border-black hover:shadow-2xl cursor-pointer">
+        <Link to='/co' className="bg-white rounded-3xl mt-6 px-8 sm:px-10 py-2 hover:border hover:border-black hover:shadow-2xl cursor-pointer">
           Contact Us
         </Link>
       </div>
