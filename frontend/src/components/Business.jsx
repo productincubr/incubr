@@ -1,42 +1,3 @@
-// import React from "react";
-// import logoprodman02 from "../assets/logoprodman02.png";
-// import logoprodman03 from "../assets/logoprodman03.png";
-// import logoprodman04 from "../assets/logoprodman04.png";
-
-// const Business = () => {
-//   return (
-//     <div className="mt-36 mx-48">
-//       <p className="nunito text-[35px] text-center underline">Our Businesses</p>
-//       <div className="flex justify-center gap-20 mt-20 mb-12">
-//         <div>
-//           <img src={logoprodman04} alt="logo4" className="h-20 mb-3" />
-//           <a href="#" className="ml-2 mt-6 text-lg hover:text-[#F19D38]">
-//             Coworking & Managed Offices
-//             <span className="material-symbols-outlined ml-2">arrow_outward</span>
-//           </a>
-//         </div>
-//         <div>
-//           <img src={logoprodman03} alt="logo3" className="h-20 mb-3" />
-//           <a href="#" className="ml-2 mt-6 text-lg hover:text-[#F19D38]">
-//             Product & MVP Dev. & GTM
-//             <span className="material-symbols-outlined ml-2">arrow_outward</span>
-//           </a>
-//         </div>
-//       </div>
-//       <div className="flex justify-center">
-//         <div className="flex flex-col">
-//           <img src={logoprodman02} alt="logo2" className="h-20" />
-//           <a href="#" className="ml-2 mt-4 text-lg hover:text-[#F19D38]">
-//             Media & Podcast sets
-//             <span className="material-symbols-outlined ml-2">arrow_outward</span>
-//           </a>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Business;
 
 
 import React from "react";
@@ -63,7 +24,7 @@ const Business = () => {
             className="h-12 lg:h-20 mb-3 mx-auto lg:mx-0"
           />
           <a
-            href="#"
+            href="https://work-life-desk-vpn3.vercel.app/"
             target="_blank"
             className="inline-flex items-center mt-4 text-base lg:text-lg hover:text-[#F19D38]"
           >
@@ -102,7 +63,7 @@ const Business = () => {
             className="h-12 lg:h-20 mx-auto lg:mx-0"
           />
           <a
-            href="#"
+            href="https://prodmaninc.com/studio"
             target="_blank"
             className="inline-flex items-center mt-4 text-base lg:text-lg hover:text-[#F19D38]"
           >
