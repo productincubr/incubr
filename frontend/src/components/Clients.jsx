@@ -22,7 +22,7 @@ const Clients = () => {
 
   return (
     <section className="mt-24 lg:mt-48 py-8">
-      <p className="nunito text-[30px] font-bold sm:text-[30px] lg:text-[35px] text-center underline lg:underline mb-12">
+      <p className="nunito text-[30px] font-bold sm:text-[35px] lg:text-[48px] text-center underline lg:underline mb-12">
         What the Clients Say
       </p>
 
@@ -44,6 +44,8 @@ const Clients = () => {
                 <img
                   src={testimonial.img}
                   alt={testimonial.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-scale-down"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

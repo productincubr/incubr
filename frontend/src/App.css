@@ -14,16 +14,30 @@ html {
   box-sizing: border-box;
 }
 
+/* Performance optimization: enable GPU acceleration */
+.recoleta-bold,
+.nunito,
+.marquee,
+.particle,
+.animate-scroll-testimonial {
+  will-change: auto;
+  contain: layout;
+}
+
 .recoleta-bold {
-  font-family: "RecoletaAlt", serif;
+  font-family: "RecoletaAlt", system-ui, -apple-system, serif;
   font-weight: 700;
+  font-display: swap;
 }
 .nunito{
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito", system-ui, -apple-system, sans-serif;
+  font-display: swap;
 }
 .marquee {
   animation: marquee 20s linear infinite;
   display: inline-block;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 @keyframes marquee {
@@ -249,10 +263,13 @@ html {
   position: relative;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .incubatee-card:hover {
-  transform: translateY(-8px) scale(1.05);
+  transform: translateY(-8px) scale(1.05) translateZ(0);
   box-shadow: 0 20px 40px rgba(241, 157, 56, 0.4);
   border-color: #F19D38;
 }
@@ -303,6 +320,12 @@ html {
   will-change: transform;
   display: flex;
   width: max-content;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.hover-pause-scroll:hover .animate-scroll-testimonial {
+  animation-play-state: paused;
 }
 
 .hover-pause-scroll:hover {

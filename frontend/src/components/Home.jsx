@@ -1,19 +1,24 @@
-import Business from './Business'
-import Clients from './Clients'
+import { lazy, Suspense } from 'react'
 import Hero from './Hero'
-import Incubatees from './Incubatees'
-import Together from './Together'
-import WorkingOn from './WorkingOn'
+
+// Lazy load below-the-fold components for faster initial load
+const Business = lazy(() => import('./Business'))
+const Incubatees = lazy(() => import('./Incubatees'))
+const Clients = lazy(() => import('./Clients'))
+const Together = lazy(() => import('./Together'))
+const WorkingOn = lazy(() => import('./WorkingOn'))
 
 const Home = () => {
   return (
     <>
       <Hero/>
-      <Business/>
-      <Incubatees/>
-      <Clients/>
-      <Together/>
-      <WorkingOn/>
+      <Suspense fallback={<div style={{ minHeight: '200px' }} />}>
+        <Business/>
+        <Incubatees/>
+        <Clients/>
+        <Together/>
+        <WorkingOn/>
+      </Suspense>
     </>
   )
 }

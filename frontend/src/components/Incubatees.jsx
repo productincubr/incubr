@@ -72,7 +72,9 @@ const Incubatees = () => {
             {item.src && (
               <img 
                 src={item.src} 
-                alt={item.alt} 
+                alt={item.alt}
+                loading="lazy"
+                decoding="async"
                 className={`${item.height} transition-all duration-300`} 
               />
             )}
@@ -96,7 +98,7 @@ const Incubatees = () => {
     <section className="mt-24 sm:mt-48 sm:mx-12 lg:mx-48">
       {/* Heading */}
       <motion.p 
-        className="nunito text-[30px] lg:mb-12 font-bold sm:text-[30px] lg:text-[35px] text-center lg:underline"
+        className="nunito text-[30px] lg:mb-12 font-bold sm:text-[35px] lg:text-[48px] text-center lg:underline"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.8 }}
