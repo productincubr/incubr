@@ -10,7 +10,7 @@ const Business = () => {
     <section className="mt-20 lg:mt-36 mx-6 sm:mx-12 lg:mx-48">
       
       {/* Heading */}
-      <p className="nunito text-[40px] font-bold sm:text-[30px] lg:text-[35px] text-center underline lg:underline">
+      <p className="nunito text-[40px] font-bold sm:text-[35px] lg:text-[48px] text-center underline lg:underline">
         Our Businesses
       </p>
 
@@ -21,6 +21,8 @@ const Business = () => {
           <img
             src={logoprodman04}
             alt="logo4"
+            loading="lazy"
+            decoding="async"
             className="h-12 lg:h-20 mb-3 mx-auto lg:mx-0"
           />
           <a
@@ -39,6 +41,8 @@ const Business = () => {
           <img
             src={logoprodman03}
             alt="logo3"
+            loading="lazy"
+            decoding="async"
             className="h-12 lg:h-20 mb-3 mx-auto lg:mx-0"
           />
           <a
@@ -60,6 +64,8 @@ const Business = () => {
           <img
             src={logoprodman02}
             alt="logo2"
+            loading="lazy"
+            decoding="async"
             className="h-12 lg:h-20 mx-auto lg:mx-0"
           />
           <a

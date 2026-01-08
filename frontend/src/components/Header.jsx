@@ -85,7 +85,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#FFFAE4] shadow-sm border-b border-[#F19D38]/10">
-      <div className="flex items-center h-20 mx-4 md:mx-12 lg:mx-24 relative max-w-screen-2xl">
+      <div className="flex items-center h-28 mx-4 md:mx-12 lg:mx-24 relative max-w-screen-2xl">
         
         {/* Hamburger (Mobile Only) - Enhanced */}
         <button
@@ -112,7 +112,7 @@ const Header = () => {
             cursor-pointer
           "
         >
-          <img src={logo} alt="Incubr Logo" className="h-8" />
+          <img src={logo} alt="Incubr Logo" loading="eager" decoding="async" className="h-10" />
         </Link>
 
         {/* Desktop / Tablet Tabs */}
@@ -122,8 +122,8 @@ const Header = () => {
               key={tab.name}
               onClick={() => handleTabClick(tab)}
               className={`
-                px-10 lg:px-16 py-2 rounded-4xl transition-all duration-300
-                transform hover:scale-105 font-medium cursor-pointer
+                px-10 lg:px-20 py-2 rounded-4xl transition-all duration-300
+                transform hover:scale-105 font-medium text-xl cursor-pointer
                 ${
                   activeTab === tab.name
                     ? "bg-gradient-to-r from-[#F19D38] to-[#E88B28] text-white shadow-lg"

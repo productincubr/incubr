@@ -1,14 +1,3 @@
-// import React from 'react'
-
-// const Together = () => {
-//   return (
-//     <div>
-//       <p className='recoleta-bold lg:-mt-12 text-black py-4 font-900 text-center lg:text-[130px] text-[70px] mt-28'>We will * Together</p>
-//     </div>
-//   )
-// }
-
-// export default Together
 
 
 import React from "react";
