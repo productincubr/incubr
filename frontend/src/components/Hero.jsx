@@ -36,11 +36,11 @@ const Hero = () => {
       {/* TEXT */}
       {/* yha es An enviroment mein ye font family use hogi = FONTSPRING DEMO - Recoleta Alt Bold */}
       <div className="w-full lg:w-[55%] text-center lg:text-left">
-        <p className="recoleta-bold font-bold text-[44px] sm:text-[48px] lg:text-[75px] leading-tight lg:leading-[1.1]">
+        <p className="recoleta-bold font-bold text-[38px] sm:text-[42px] lg:text-[60px] leading-tight lg:leading-[1.1]">
           An environment designed to make ideas real
         </p>
 
-        <p className="nunito mt-6 lg:mt-8 font-normal text-[20px] sm:text-[26px] lg:text-[32px] leading-[1.5] sm:leading-[1.9] lg:leading-[1.6]">
+        <p className="nunito mt-6 lg:mt-8 font-normal text-[16px] sm:text-[20px] lg:text-[24px] leading-[1.5] sm:leading-[1.7] lg:leading-[1.6]">
           <span className="bg-[#F19D38] px-1 mb-3">A flexible workspace</span> where
           founders turn ideas into MVPs.{" "}
           <span className="bg-[#F19D38] px-1">Built for fast execution</span> and
