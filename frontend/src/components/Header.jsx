@@ -85,7 +85,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#FFFAE4] shadow-sm border-b border-[#F19D38]/10">
-      <div className="flex items-center h-24 mx-4 md:mx-12 lg:mx-24 relative max-w-screen-2xl">
+      <div className="flex items-center h-[88px] mx-4 md:mx-12 lg:mx-24 relative max-w-screen-2xl">
         
         {/* Hamburger (Mobile Only) - Enhanced */}
         <button
