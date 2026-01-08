@@ -85,7 +85,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#FFFAE4] shadow-sm border-b border-[#F19D38]/10">
-      <div className="flex items-center h-16 mx-4 md:mx-12 lg:mx-24 relative max-w-screen-2xl">
+      <div className="flex items-center h-24 mx-4 md:mx-12 lg:mx-24 relative max-w-screen-2xl">
         
         {/* Hamburger (Mobile Only) - Enhanced */}
         <button
@@ -112,17 +112,17 @@ const Header = () => {
             cursor-pointer
           "
         >
-          <img src={logo} alt="Incubr Logo" loading="eager" decoding="async" className="h-7" />
+          <img src={logo} alt="Incubr Logo" loading="eager" decoding="async" className="h-9" />
         </Link>
 
         {/* Desktop / Tablet Tabs */}
-        <div className="hidden md:flex ml-auto bg-gradient-to-r from-[#D9D9D9] to-[#CECECE] rounded-4xl items-center py-2 px-2 gap-1.5 shadow-md">
+        <div className="hidden md:flex ml-auto bg-gradient-to-r from-[#D9D9D9] to-[#CECECE] rounded-4xl items-center py-2 px-6 gap-1.5 shadow-md">
           {tabs.map((tab) => (
             <button
               key={tab.name}
               onClick={() => handleTabClick(tab)}
               className={`
-                px-6 lg:px-10 py-1.5 rounded-4xl transition-all duration-300
+                px-6 lg:px-12 py-1.5 rounded-4xl transition-all duration-300
                 transform hover:scale-105 font-medium text-base cursor-pointer
                 ${
                   activeTab === tab.name
