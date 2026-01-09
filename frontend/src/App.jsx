@@ -16,16 +16,14 @@ function AppContent() {
   
   return (
     <>
-      <Header/>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/masterclass" element={<Masterclass />} />
-          <Route path="/contact" element={<ContactUs />} />
-        </Routes>
-        {location.pathname === '/' && <Footer/>}
-      </Suspense>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/master-class" element={<Masterclass />} />
+        <Route path="/contact" element={<ContactUs />} />
+      </Routes>
+      {location.pathname === '/' && <Footer />}
     </>
   );
 }
@@ -33,7 +31,9 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      <AppContent />
+      <Suspense fallback={<Loader />}>
+        <AppContent />
+      </Suspense>
     </Router>
   )
 }

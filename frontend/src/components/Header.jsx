@@ -49,7 +49,7 @@ const Header = () => {
 
   const tabs = [
     { name: "Services", icon: Sparkles, path: "/services" },
-    { name: "Masterclass", icon: BookOpen, path: "/masterclass" },
+    { name: "Masterclass", icon: BookOpen, path: "/master-class" },
     { name: "Contact Us", icon: Phone, path: "/contact" }
   ];
 
@@ -57,7 +57,7 @@ const Header = () => {
   useEffect(() => {
     if (location.pathname === '/contact') {
       setActiveTab("Contact Us");
-    } else if (location.pathname === '/masterclass') {
+    } else if (location.pathname === '/master-class') {
       setActiveTab("Masterclass");
     } else if (location.pathname === '/services') {
       setActiveTab("Services");
@@ -116,13 +116,13 @@ const Header = () => {
         </Link>
 
         {/* Desktop / Tablet Tabs */}
-        <div className="hidden md:flex ml-auto bg-gradient-to-r from-[#D9D9D9] to-[#CECECE] rounded-4xl items-center py-2 px-6 gap-1.5 shadow-md">
+        <div className="hidden md:flex ml-auto bg-gradient-to-r from-[#D9D9D9] to-[#CECECE] rounded-4xl items-center py-2 px-6 gap-4 shadow-md">
           {tabs.map((tab) => (
             <button
               key={tab.name}
               onClick={() => handleTabClick(tab)}
               className={`
-                px-6 lg:px-12 py-1.5 rounded-4xl transition-all duration-300
+                px-6 lg:px-12 py-2 rounded-4xl transition-all duration-300
                 transform hover:scale-105 font-medium text-base cursor-pointer
                 ${
                   activeTab === tab.name
