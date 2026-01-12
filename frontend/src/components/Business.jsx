@@ -26,7 +26,7 @@ const Business = () => {
             className="h-12 lg:h-20 mb-3 mx-auto lg:mx-0"
           />
           <a
-            href="https://work-life-desk-vpn3.vercel.app/"
+            href="https://www.worklifedesks.com/"
             target="_blank"
             className="inline-flex items-center mt-4 text-base lg:text-lg hover:text-[#F19D38]"
           >
