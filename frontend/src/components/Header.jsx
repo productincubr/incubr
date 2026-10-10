@@ -39,7 +39,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { Menu, X, Sparkles, Rocket, BookOpen, Phone } from "lucide-react"; // install: npm i lucide-react
+import { Menu, X, Sparkles, BookOpen, Phone } from "lucide-react"; // install: npm i lucide-react
 
 const Header = () => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const Header = () => {
 
   const tabs = [
     { name: "Services", icon: Sparkles, path: "/services" },
-    { name: "Sprint Incubation", icon: Rocket, path: "/sprint-incubation" },
+    // { name: "Sprint Incubation", icon: Rocket, path: "/sprint-incubation" },
     { name: "Masterclass", icon: BookOpen, path: "/master-class" },
     { name: "Contact Us", icon: Phone, path: "/contact" }
   ];
@@ -58,8 +58,6 @@ const Header = () => {
   useEffect(() => {
     if (location.pathname === '/contact') {
       setActiveTab("Contact Us");
-    } else if (location.pathname === '/sprint-incubation') {
-      setActiveTab("Sprint Incubation");
     } else if (location.pathname === '/master-class') {
       setActiveTab("Masterclass");
     } else if (location.pathname === '/services') {
