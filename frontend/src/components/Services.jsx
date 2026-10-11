@@ -34,41 +34,36 @@ const marketSignals = [
 const Services = () => (
   <main className="services-page">
     <section className="services-hero">
-      <div className="hero-grid" aria-hidden="true" />
-      <div className="hero-copy">
-        <p className="services-kicker">SERVICES / 01</p>
-        <h1>Make the<br /><em>first move</em><br />count.</h1>
-        <p className="services-intro">Two focused ways to take a consumer brand from first insight to first sale in India.</p>
-        <a className="hero-link" href="#ways-to-work">Explore the pathways <span aria-hidden="true">↘</span></a>
-      </div>
-      <div className="hero-orbit" aria-hidden="true"><span>IDEA</span><span>BUILD</span><span>LAUNCH</span><i /></div>
+      <p className="services-kicker">SERVICES</p>
+      <h1>Two ways to<br />work with Incubr</h1>
+      <p className="services-intro">Both run as sprints, with one team covering validation, development, manufacturing, branding, quality and launch.</p>
     </section>
 
-    <section className="service-paths" id="ways-to-work" aria-label="Ways to work with Incubr">
-      <div className="section-heading"><p className="services-kicker">THE INCUBR METHOD / 02</p><h2>Pick your starting point.<br /><span>We build from there.</span></h2></div>
+    <section className="service-paths" aria-label="Ways to work with Incubr">
       {servicePaths.map((path, index) => (
-        <article className={`service-path service-path--${index + 1}`} key={path.title}>
-          <div className="service-path-top"><span className="path-number">0{index + 1}</span><p className="service-eyebrow">{path.eyebrow}</p></div>
-          <h3>{path.title}</h3>
+        <article className={`service-path ${index === 0 ? 'service-path--muted' : ''}`} key={path.title}>
+          <p className="service-eyebrow">{path.eyebrow}</p>
+          <h2>{path.title}</h2>
           <p className="service-description">{path.description}</p>
           <div className="service-steps">
-            {path.steps.map(([label, detail], stepIndex) => <div className="service-step" key={label}><span className="step-index">0{stepIndex + 1}</span><strong>{label}</strong><span>{detail}</span></div>)}
+            {path.steps.map(([label, detail]) => <div className="service-step" key={label}><strong>{label}</strong><span>{detail}</span></div>)}
           </div>
-          <div className="path-arrow" aria-hidden="true">↗</div>
         </article>
       ))}
     </section>
 
     <section className="market-section">
-      <div><p className="services-kicker">WHY INDIA, WHY NOW / 03</p><h2>The world's fourth-largest economy is lowering the cost of entry</h2></div>
+      <p className="services-kicker">WHY INDIA, WHY NOW</p>
+      <h2>The world's fourth-largest economy is lowering the cost of entry</h2>
       <p className="market-intro">Tax cuts, a growing middle class and digital payment rails make 2026 a strong window for consumer brands.</p>
       <div className="market-grid">
-        {marketSignals.map(([stat, label, detail], index) => <article className="market-signal" key={label}><span className="signal-index">0{index + 1}</span><p className="market-stat">{stat}</p><h3>{label}</h3><p>{detail}</p></article>)}
+        {marketSignals.map(([stat, label, detail]) => <article className="market-signal" key={label}><p className="market-stat">{stat}</p><h3>{label}</h3><p>{detail}</p></article>)}
       </div>
     </section>
 
     <section className="founder-section">
-      <div className="founder-heading"><p className="services-kicker">THE OPERATOR / 04</p><h2>Led by an operator<br />who has done it before</h2></div>
+      <p className="services-kicker">FOUNDER</p>
+      <h2>Led by an operator<br />who has done it before</h2>
       <div className="founder-copy">
         <img className="founder-image" src={founderImage} alt="Gopal Batra" />
         <div><p className="founder-name">Gopal Batra</p><p className="founder-role">Founder, Incubr Tech Pvt Ltd</p><p className="founder-quote">A brand builder and country operator who has spent his career on the hardest stretch for any brand: the first mile in a new market.</p></div>
