@@ -1,75 +1,104 @@
-import './Services.css';
-import founderImage from '../assets/image.png';
+import React from 'react';
+import { motion } from 'framer-motion';
 
-const servicePaths = [
-  {
-    eyebrow: 'FOR GLOBAL BRANDS',
-    title: 'India market entry',
-    description: 'A partner on the ground from first insight to first sale in India.',
-    steps: [
-      ['Validate', 'Market validation, channel research, competitive positioning'],
-      ['Localize', 'Product localization, CMO and strategic sourcing, quality and compliance'],
-      ['Launch', 'Brand and packaging adaptation, go-to-market and sales, market enablement'],
-    ],
-  },
-  {
-    eyebrow: 'FOR FOUNDERS AND NEW PRODUCTS',
-    title: 'Sprint incubation',
-    description: 'A one-stop sprint that takes a product idea to market-ready.',
-    steps: [
-      ['Validate', 'Product validation, category validation, marketplace research'],
-      ['Build', 'Competitive positioning, product development, CMO management'],
-      ['Launch ready', 'Bespoke brand and packaging, quality assurance, go-to-market'],
-    ],
-  },
-];
+const Services = () => {
+  return (
+    <div className="min-h-screen bg-[#FFFAE4] py-16 px-4 sm:px-8 lg:px-24">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+            Sprint Incubation | Zero to One
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-700 mb-6">
+            A 7-day sprint to turn an idea into a launch-ready brand.
+          </p>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            An intensive, founder-led program to build the strategic, creative, and
+            commercial foundation - fast, focused, and done right.
+          </p>
+          <p className="text-lg font-semibold text-[#F19D38] mt-4">
+            Not acceleration. Preparation.
+          </p>
+        </motion.div>
 
-const marketSignals = [
-  ['#4', 'Largest economy', 'Nominal GDP of about $4.19 trillion in 2025, ahead of Japan.'],
-  ['5%', 'GST on packaged foods', 'GST 2.0 cut sauces, pasta, chocolates, coffee and more to 5%.'],
-  ['₹12L', 'Tax-free income', 'From FY26, incomes up to ₹12 lakh pay no income tax.'],
-  ['24.5B', 'UPI payments a month', 'A record monthly volume, up 22% year on year.'],
-];
-
-const Services = () => (
-  <main className="services-page">
-    <section className="services-hero">
-      <p className="services-kicker">SERVICES</p>
-      <h1>Two ways to<br />work with Incubr</h1>
-      <p className="services-intro">Both run as sprints, with one team covering validation, development, manufacturing, branding, quality and launch.</p>
-    </section>
-
-    <section className="service-paths" aria-label="Ways to work with Incubr">
-      {servicePaths.map((path, index) => (
-        <article className={`service-path ${index === 0 ? 'service-path--muted' : ''}`} key={path.title}>
-          <p className="service-eyebrow">{path.eyebrow}</p>
-          <h2>{path.title}</h2>
-          <p className="service-description">{path.description}</p>
-          <div className="service-steps">
-            {path.steps.map(([label, detail]) => <div className="service-step" key={label}><strong>{label}</strong><span>{detail}</span></div>)}
+        <motion.section className="mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Sprint Incubation</h2>
+          <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-200">
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">Most brands fail not because of lack of effort, but because the foundation is weak.</p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">Sprint Incubation exists to bring clarity before capital, structure before scale, and direction before execution.</p>
+            <p className="text-lg font-semibold text-[#F19D38]">We believe in building once - and building well.</p>
           </div>
-        </article>
-      ))}
-    </section>
+        </motion.section>
 
-    <section className="market-section">
-      <p className="services-kicker">WHY INDIA, WHY NOW</p>
-      <h2>The world's fourth-largest economy is lowering the cost of entry</h2>
-      <p className="market-intro">Tax cuts, a growing middle class and digital payment rails make 2026 a strong window for consumer brands.</p>
-      <div className="market-grid">
-        {marketSignals.map(([stat, label, detail]) => <article className="market-signal" key={label}><p className="market-stat">{stat}</p><h3>{label}</h3><p>{detail}</p></article>)}
-      </div>
-    </section>
+        <motion.section className="mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What We Build (In 7 Days)</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              ['Brand', 'Positioning, purpose, narrative, visual and verbal brand guide'],
+              ['Product', 'UX-UI thinking, MVP definition, website architecture'],
+              ['Growth', 'Go-to-market strategy, sales framework, performance marketing logic'],
+              ['Readiness', 'Launch checklist, 30-60 day execution roadmap'],
+            ].map(([title, description]) => (
+              <div className="bg-gradient-to-br from-[#F19D38]/10 to-[#E88B28]/10 rounded-2xl p-6 border-2 border-[#F19D38]/30 shadow-md" key={title}>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
+                <p className="text-gray-700 leading-relaxed">{description}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-lg font-semibold text-[#F19D38] mt-6">Everything essential. Nothing unnecessary.</p>
+        </motion.section>
 
-    <section className="founder-section">
-      <p className="services-kicker">FOUNDER</p>
-      <h2>Led by an operator<br />who has done it before</h2>
-      <div className="founder-copy">
-        <img className="founder-image" src={founderImage} alt="Gopal Batra" />
-        <div><p className="founder-name">Gopal Batra</p><p className="founder-role">Founder, Incubr Tech Pvt Ltd</p><p className="founder-quote">A brand builder and country operator who has spent his career on the hardest stretch for any brand: the first mile in a new market.</p></div>
+        <motion.section className="mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">The 7-Day Structure</h2>
+          <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-200">
+            <ul className="space-y-4 text-lg text-gray-700">
+              {[
+                ['Days 1-2:', 'Brand foundation and strategic clarity'],
+                ['Day 3:', 'Product thinking and MVP structure'],
+                ['Day 4:', 'Marketing strategy workshop'],
+                ['Day 5:', 'Sales strategy workshop'],
+                ['Day 6:', 'Performance marketing workshop'],
+                ['Day 7:', 'Launch readiness and execution plan'],
+              ].map(([day, description]) => <li className="flex items-start" key={day}><span className="font-bold text-[#F19D38] mr-3">{day}</span><span>{description}</span></li>)}
+            </ul>
+            <p className="text-center text-lg font-semibold text-[#F19D38] mt-6">Short. Focused. Outcome-driven.</p>
+          </div>
+        </motion.section>
+
+        <motion.section className="mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Who This Is For</h2>
+          <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-200">
+            <ul className="space-y-3 text-lg text-gray-700 mb-6">
+              {['Founders starting from scratch', 'Early-stage teams seeking clarity', 'Entrepreneurs who value structure', 'Brands that want to avoid expensive mistakes'].map((item) => <li className="flex items-center" key={item}><span className="w-2 h-2 bg-[#F19D38] rounded-full mr-3" />{item}</li>)}
+            </ul>
+            <p className="text-lg font-semibold text-[#F19D38]">If you prefer discipline over chaos, this is for you.</p>
+          </div>
+        </motion.section>
+
+        <motion.section className="mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What You Leave With</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {['A clearly positioned brand', 'A defined MVP and website structure', 'Marketing and sales clarity', 'A confident path to launch'].map((item) => <div className="bg-gradient-to-r from-[#F19D38] to-[#E88B28] rounded-xl p-6 text-white shadow-lg" key={item}><p className="text-lg font-medium">{item}</p></div>)}
+          </div>
+          <p className="text-center text-lg font-semibold text-[#F19D38] mt-6">You do not leave with ideas. You leave with direction.</p>
+        </motion.section>
+
+        <motion.section className="text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Belief</h2>
+          <div className="bg-gradient-to-br from-[#F19D38]/20 to-[#E88B28]/20 rounded-2xl p-12 border-2 border-[#F19D38]/30 shadow-xl">
+            <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Good brands are not rushed.</p>
+            <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">They are prepared.</p>
+            <p className="text-xl text-gray-700">Sprint Incubation is built on that principle.</p>
+          </div>
+        </motion.section>
       </div>
-    </section>
-  </main>
-);
+    </div>
+  );
+};
 
 export default Services;
