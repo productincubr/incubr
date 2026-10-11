@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:prod": "vite build --mode production",
+    "build": "vite build && node scripts/create-404.mjs",
+    "build:prod": "vite build --mode production && node scripts/create-404.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "analyze": "vite build --mode production && vite-bundle-visualizer"
