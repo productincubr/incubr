@@ -49,6 +49,7 @@ const Header = () => {
 
   const tabs = [
     { name: "Services", icon: Sparkles, path: "/services" },
+    // { name: "Sprint Incubation", icon: Rocket, path: "/sprint-incubation" },
     { name: "Masterclass", icon: BookOpen, path: "/master-class" },
     { name: "Contact Us", icon: Phone, path: "/contact" }
   ];
